@@ -23,7 +23,7 @@ git branch -M main
 git push -u origin main
 ```
 
-### 2. AWS Setup (FREE TIER)
+### 2. AWS Setup (FREE TIER) - FIXED BUCKET POLICY
 ```bash
 # Install AWS CLI first: https://aws.amazon.com/cli/
 # Configure with your AWS credentials
@@ -56,14 +56,14 @@ Go to your GitHub repo → Settings → Secrets and variables → Actions → Ne
 ```
 AWS_ACCESS_KEY_ID: Your AWS Access Key
 AWS_SECRET_ACCESS_KEY: Your AWS Secret Key  
-S3_BUCKET_NAME: your-unique-portfolio-bucket-name
+S3_BUCKET_NAME: adi-pf-2606
 ```
 
 ### 4. Deploy (Automatic)
 Push any changes to `main` branch → GitHub Actions deploys automatically!
 
 ## 🌐 Your Live Website
-After deployment: `http://your-unique-portfolio-bucket-name.s3-website-us-east-1.amazonaws.com`
+After deployment: `http://adi-pf-2606.s3-website-us-east-1.amazonaws.com`
 
 ## 📁 Structure
 ```

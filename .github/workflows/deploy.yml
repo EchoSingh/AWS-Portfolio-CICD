@@ -21,21 +21,11 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-    - name: Install dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y awscli
-
     - name: Sync files to S3
       run: |
         aws s3 sync ./website s3://${{ secrets.S3_BUCKET_NAME }} --delete --cache-control max-age=31536000,public
 
-    - name: Invalidate CloudFront distribution
-      run: |
-        aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
-      continue-on-error: true
-
     - name: Verify deployment
       run: |
         echo "✅ Deployment completed successfully!"
-        echo "🌐 Website URL: https://${{ secrets.S3_BUCKET_NAME }}.s3-website-us-east-1.amazonaws.com"
+        echo "🌐 Website URL: http://${{ secrets.S3_BUCKET_NAME }}.s3-website-us-east-1.amazonaws.com"
